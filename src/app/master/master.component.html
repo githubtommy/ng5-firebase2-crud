@@ -1,0 +1,62 @@
+<div class="spacer-vert-25">&nbsp;</div>
+
+<div class="container-fluid">
+
+
+	<div class="row">
+		<div class="col-md-8">
+			<h1 class="text-left">My Inventory</h1>
+		</div>
+		<div class="col-md-2">
+			<button type="button" class="btn btn-theme-highlight" (click)="askDeleteAllRecords()" [disabled]="inventoryItemList && inventoryItemList.length === 0" >Delete All Records</button>
+		</div>
+		<div class="col-md-2">
+			<button type="button" class="btn btn-theme-highlight" (click)="addSampleRecords()" [disabled]="didAddSampleRecords === true">Add Sample Records</button>
+		</div>
+	</div>
+	<div class="spacer-vert-25">&nbsp;</div>
+
+
+	<table class="table table-sm table-hover table-striped" style="padding: 20px">
+		<tr class="table-header-row">
+			<th [ngClass]="getHeaderClass(SORTKEY_NAME)" 					(click)="setSortKey(SORTKEY_NAME)">Name <i [ngClass]="getSortCaretClass(SORTKEY_NAME)"></i></th>
+			<th [ngClass]="getHeaderClass(SORTKEY_DESCRIPTION)" 	(click)="setSortKey(SORTKEY_DESCRIPTION)">Description <i [ngClass]="getSortCaretClass(SORTKEY_DESCRIPTION)"></i></th>
+			<th [ngClass]="getHeaderClass(SORTKEY_CATEGORY)" 			(click)="setSortKey(SORTKEY_CATEGORY)">Category <i [ngClass]="getSortCaretClass(SORTKEY_CATEGORY)"></i></th>
+			<th [ngClass]="getHeaderClass(SORTKEY_LOCATION)" 			(click)="setSortKey(SORTKEY_LOCATION)">Location <i [ngClass]="getSortCaretClass(SORTKEY_LOCATION)"></i></th>
+			<th [ngClass]="getHeaderClass(SORTKEY_RATING)" 				(click)="setSortKey(SORTKEY_RATING)">Value <i [ngClass]="getSortCaretClass(SORTKEY_RATING)"></i></th>
+			<th colspan="2"><i class="fa fa-plus" (click)="onEdit()"></i></th>
+			<tr *ngFor="let inventoryItem of inventoryItemList">
+				<td>{{inventoryItem.name}}</td>
+				<td>{{inventoryItem.description}}</td>
+				<td>{{inventoryItem.category}}</td>
+				<td>{{inventoryItem.location}}</td>
+				<td>{{inventoryItem.rating}}</td>
+				<td>
+					<i class="fa fa-pencil" (click)="onEdit(inventoryItem)"></i>
+				</td>
+				<td>
+					<i class="fa fa-trash" (click)="onDelete(inventoryItem.$key)"></i>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div [ngClass]="{'show': showConfirmationModal}" class="modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Confirmation</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="doNotDeleteAllRecords()">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure you want to delete all records?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-theme-highlight" (click)="doDeleteAllRecords()">Yes</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal" (click)="doNotDeleteAllRecords()">Don't Delete</button>
+				</div>
+			</div>
+		</div>
+	</div>

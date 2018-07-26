@@ -1,0 +1,134 @@
+/* You can add global styles to this file, and also import other style files */
+/*input.ng-invalid.ng-dirty{
+    border: 1px solid red;
+}
+
+
+button:hover,a.btn:hover{
+    cursor: pointer;
+    }*/
+
+.modal.show {
+    display:block;
+  }
+      /*Bootstrap hidden fix*/
+    [hidden] { display: none !important;}
+
+
+    /*other*/
+
+    .app-compononent-container {
+      padding: 60px;
+    }
+
+
+    u {
+      text-decoration: none;
+      border-bottom: 5px solid #FCD948;
+      }​
+
+      .homebody {
+        font-size: 14px;
+        line-height:28px;
+        letter-spacing: 0.3px;
+        max-width: 90%;
+      }
+      .intro {
+        font-size: 18px;
+      }
+
+
+
+      .homebody h2 {
+        margin-top: 1em;
+        font-size: 1.8em;
+        font-weight: 600;
+      }
+
+      .homebody h3 {
+        margin-top: 2em;
+        color: #8C4090;
+        font-size: 1.2em;
+        font-weight: 600;
+      }
+
+
+
+      .navbar-override {
+        background-color: #381C38
+      }
+
+      .table-header-row {
+        background-color: #BFBFBF !important;
+        color: black;
+      }
+
+      th {
+        cursor: pointer;
+        font-weight: 300;
+        font-size: 16px;
+      }
+
+      .active {
+        text-decoration: underline !important;
+      }
+      .selectedTh {
+        color: #381C38;
+      }
+
+      .btn-theme-highlight {
+        background-color: #FCDE5A;
+        color: black;
+      }
+
+      .navbar-brand {
+        color: #FCD948 !important;
+      }
+
+      .navbar-brandXXX
+      {
+        position: relative;
+        background: url(./img/squirrel_sm.png);
+        width: 147px;
+        height: 30px;
+        left: 0px;
+      }
+
+
+      /* Master Styles */
+
+      .spacer-vert-25 {
+        margin-top: 25px;
+      }
+
+      h1 {
+        color: #2A142A;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 250%;
+      }
+      h2, h3 {
+        color: #444;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: lighter;
+      }
+      body {
+        margin: 0;
+      }
+      body, input[text], button {
+        color: black;
+        font-family: Arial;
+      }
+      a {
+        cursor: pointer;
+        cursor: hand;
+      }
+
+
+
+      /* everywhere else */
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+
+

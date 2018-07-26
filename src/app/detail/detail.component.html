@@ -1,0 +1,68 @@
+<div class="container-fluid" >
+	<div class="spacer-vert-25">&nbsp;</div>
+	<button type="button" class="btn btn-theme-highlight" (click)="goBackToMaster()"><i class="fa fa-chevron-left"></i> Cancel</button>
+	<div class="spacer-vert-25">&nbsp;</div>
+	<div class="spacer-vert-25">&nbsp;</div>
+	<form #inventoryItemForm="ngForm" (ngSubmit)="onSubmit(inventoryItemForm)">
+		<input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="inventoryService.selectedInventoryItem.$key">
+
+
+
+		<div class="row">
+			<div class="col-md-8">
+				<div class="form-group">
+					<label>Name</label>
+					<input class="form-control" name="name" #name="ngModel" [(ngModel)]="inventoryService.selectedInventoryItem.name" placeholder="Item name" required ng-maxlength="40" maxlength="40">
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="form-group">
+					<label>Category</label>
+					<input class="form-control" name="category" #category="ngModel" [(ngModel)]="inventoryService.selectedInventoryItem.category" placeholder="Category" required ng-maxlength="20" maxlength="20">
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label>Description</label>
+					<textarea class="form-control" name="description" #description="ngModel" [(ngModel)]="inventoryService.selectedInventoryItem.description" placeholder="Description" id="exampleFormControlTextarea1" rows="3"></textarea>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div class="row">
+
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Storage Location</label>
+					<input class="form-control" name="location" #location="ngModel" [(ngModel)]="inventoryService.selectedInventoryItem.location" placeholder="Storage location">
+				</div>
+			</div>
+
+
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Rating</label>
+					<div><rating name="rating" #rating="ngModel" [(ngModel)]="inventoryService.selectedInventoryItem.rating"></rating></div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="spacer-vert-25"></div>
+
+		<div class="form-group">
+			<button class="btn btn-default btn-theme-highlight" type="submit" [disabled]="!inventoryItemForm.valid">
+			Submit</button>
+			<button class="btn btn-default btn-theme-highlight" type="button" (click)="resetForm(inventoryItemForm)">
+			Clear</button>
+		</div>
+	</form>
+</div>
